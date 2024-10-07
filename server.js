@@ -10,7 +10,6 @@ const conversionRateSchema = new mongoose.Schema({
     timestamp: { type: Date, default: Date.now, required: true },
   });
   
-const ConversionRate = mongoose.model('ConversionRate', conversionRateSchema);
 const { getDateRange, getPeriod } = require('./utils/time');
 const { TimeFrameOptions } = require('./constants/timeFrames');
 const { PeriodOptions } = require('./constants/period');
