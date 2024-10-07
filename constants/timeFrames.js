@@ -1,33 +1,33 @@
-const TimeFrameOptions = {
+const TIME_FRAME_OPTIONS = {
   ONE_HOUR: "1-hour",
   FIVE_HOURS: "5-hours",
   ONE_DAY: "1-day",
   THREE_DAYS: "3-days",
 };
 
-const TimeTypes = {
+const TIME_TYPES = {
   DAY: "day",
   HOUR: "hour",
   YEAR: "year",
 };
 
-const TimeFrame = {
-  [TimeFrameOptions.ONE_HOUR]: {
+const TIME_FRAME = {
+  [TIME_FRAME_OPTIONS.ONE_HOUR]: {
     type: "hour",
     value: 1,
     label: "1 Hour",
   },
-  [TimeFrameOptions.FIVE_HOURS]: {
+  [TIME_FRAME_OPTIONS.FIVE_HOURS]: {
     type: "hour",
     value: 5,
     label: "5 Hours",
   },
-  [TimeFrameOptions.ONE_DAY]: {
+  [TIME_FRAME_OPTIONS.ONE_DAY]: {
     type: "day",
     value: 1,
     label: "1 Day",
   },
-  [TimeFrameOptions.THREE_DAYS]: {
+  [TIME_FRAME_OPTIONS.THREE_DAYS]: {
     type: "day",
     value: 3,
     label: "3 Days",
@@ -35,7 +35,7 @@ const TimeFrame = {
 };
 
 module.exports = {
-  TimeFrameOptions,
-  TimeTypes,
-  TimeFrame
+  TIME_FRAME_OPTIONS,
+  TIME_FRAME,
+  TIME_TYPES
 };

@@ -1,18 +1,17 @@
-const { Period } = require("../constants/period");
-const { TIME_FORMAT_OPTIONS } = require("../constants/timeFormat");
-const { TimeFrame, TimeTypes } = require("../constants/timeFrames");
+const { PERIOD } = require("../constants/period");
+const { TIME_FRAME, TIME_TYPES } = require("../constants/timeFrames");
 
 function getDateRange(timeframe) {
     const endDate = new Date();
     const startDate = new Date();
 
     // Calculate the start date based on the timeframe
-    switch (TimeFrame[timeframe].type) {
-        case TimeTypes.HOUR:
-            startDate.setHours(endDate.getHours() - TimeFrame[timeframe].value);
+    switch (TIME_FRAME[timeframe].type) {
+        case TIME_TYPES.HOUR:
+            startDate.setHours(endDate.getHours() - TIME_FRAME[timeframe].value);
             break;
-        case TimeTypes.DAY:
-            startDate.setDate(endDate.getDate() - TimeFrame[timeframe].value);
+        case TIME_TYPES.DAY:
+            startDate.setDate(endDate.getDate() - TIME_FRAME[timeframe].value);
             break;
         default:
             startDate.setDate(endDate.getDate() - 1);
@@ -23,24 +22,11 @@ function getDateRange(timeframe) {
 
 function getPeriod(period) {
     // Calculate the interval based on the period
-    return Period[period].value;
-}
-
-function convertDateStampToTimeFormat(
-    datestamp,
-    format
-) {
-    if (format === TIME_FORMAT_OPTIONS.GMT2) {
-        return new Date(datestamp).toLocaleString("en-GB", {timeZone: "Europe/Paris"});
-    }else if(format === TIME_FORMAT_OPTIONS.GMT1){
-        return new Date(datestamp).toLocaleString("en-GB", {timeZone: "Europe/Lisbon"});
-    }
-    return new Date(datestamp).toLocaleString("en-GB", { timeZone: "UTC" });
+    return PERIOD[period].value;
 }
 
 
 module.exports = {
     getDateRange,
     getPeriod,
-    convertDateStampToTimeFormat
 };

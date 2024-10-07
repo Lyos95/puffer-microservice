@@ -4,8 +4,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const ConversionRate = require('./models/conversionRateModel');
 const { getDateRange, getPeriod } = require('./utils/time');
-const { TimeFrameOptions } = require('./constants/timeFrames');
-const { PeriodOptions } = require('./constants/period');
+const { TIME_FRAME_OPTIONS } = require('./constants/timeFrames');
+const { PERIOD_OPTIONS } = require('./constants/period');
 
 
 dotenv.config();
@@ -25,7 +25,7 @@ app.get('/api/health', (req, res) => {
 
 app.get('/api/conversion-rate', async (req, res) => {
     try {
-      const { period = PeriodOptions.FIVE_MINUTES, timeframe = TimeFrameOptions.ONE_HOUR } = req.query;
+      const { period = PERIOD_OPTIONS.FIVE_MINUTES, timeframe = TIME_FRAME_OPTIONS.ONE_HOUR } = req.query;
       const { startDate, endDate } = getDateRange(timeframe);
       const groupByPeriod = getPeriod(period);
   
