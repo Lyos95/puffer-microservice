@@ -1,8 +1,8 @@
-import { Period } from "../constants/period";
-import { TIME_FORMAT_OPTIONS } from "../constants/timeFormat";
-import { TimeFrame, TimeTypes } from "../constants/timeFrames";
+const { Period } = require("../constants/period");
+const { TIME_FORMAT_OPTIONS } = require("../constants/timeFormat");
+const { TimeFrame, TimeTypes } = require("../constants/timeFrames");
 
-export function getDateRange(timeframe) {
+function getDateRange(timeframe) {
     const endDate = new Date();
     const startDate = new Date();
 
@@ -21,12 +21,12 @@ export function getDateRange(timeframe) {
     return { startDate, endDate };
 }
 
-export function getPeriod(period) {
+function getPeriod(period) {
     // Calculate the interval based on the period
     return Period[period].value;
 }
 
-export function convertDateStampToTimeFormat(
+function convertDateStampToTimeFormat(
     datestamp,
     format
 ) {
@@ -37,3 +37,10 @@ export function convertDateStampToTimeFormat(
     }
     return new Date(datestamp).toLocaleString("en-GB", { timeZone: "UTC" });
 }
+
+
+module.exports = {
+    getDateRange,
+    getPeriod,
+    convertDateStampToTimeFormat
+};

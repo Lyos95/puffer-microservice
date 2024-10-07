@@ -1,4 +1,4 @@
-export const PeriodOptions = {
+const PeriodOptions = {
   FIVE_MINUTES: "5-minutes",
   TEN_MINUTES: "10-minutes",
   THIRTY_MINUTES: "30-minutes",
@@ -6,12 +6,12 @@ export const PeriodOptions = {
   THREE_HOURS: "3-hours",
 };
 
-export const TimeTypes = {
+const TimeTypes = {
   DAY: "day",
   HOUR: "hour",
 };
 
-export const Period = {
+const Period = {
   [PeriodOptions.FIVE_MINUTES]: {
     value: 5 * 60 * 1000,
     label: "5 Minutes",
@@ -32,4 +32,10 @@ export const Period = {
     value: 3 * 60 * 60 * 1000,
     label: "3 Hours",
   },
+};
+
+module.exports = {
+  PeriodOptions,
+  Period,
+  TimeTypes
 };

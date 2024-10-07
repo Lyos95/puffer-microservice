@@ -1,16 +1,17 @@
-export const TimeFrameOptions = {
+const TimeFrameOptions = {
   ONE_HOUR: "1-hour",
   FIVE_HOURS: "5-hours",
   ONE_DAY: "1-day",
   THREE_DAYS: "3-days",
 };
 
-export const TimeTypes = {
+const TimeTypes = {
   DAY: "day",
   HOUR: "hour",
   YEAR: "year",
 };
-export const TimeFrame = {
+
+const TimeFrame = {
   [TimeFrameOptions.ONE_HOUR]: {
     type: "hour",
     value: 1,
@@ -31,4 +32,10 @@ export const TimeFrame = {
     value: 3,
     label: "3 Days",
   },
+};
+
+module.exports = {
+  TimeFrameOptions,
+  TimeTypes,
+  TimeFrame
 };
