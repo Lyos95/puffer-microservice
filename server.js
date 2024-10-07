@@ -3,12 +3,6 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const ConversionRate = require('./models/conversionRateModel');
-const conversionRateSchema = new mongoose.Schema({
-    conversionRate: { type: mongoose.Schema.Types.Decimal128, required: true },
-    supply: { type: String, required: true },
-    assets: { type: String, required: true },
-    timestamp: { type: Date, default: Date.now, required: true },
-  });
   
 const { getDateRange, getPeriod } = require('./utils/time');
 const { TimeFrameOptions } = require('./constants/timeFrames');
